@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media.css">
+    <title>Portfolio</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
+    <style>
+        .animation-container {
+            display: inline-block;
+        }
+        .word-animation {
+            animation: slide-in 4.5s ease;
+        }
+        @keyframes slide-in {
+            0% { transform: translateY(0); opacity: 0; }
+    
+            50% { transform: translateY(-100%); opacity: 1; }
+    
+        100%{
+            transform: translateY(0); opacity: 0;
+        }
+        }
+        </style>
+</head>
+
+<body ng-app="multiTypingApp">
+    <header id="header">
+        <div class="header_bx">
+            <nav>
+                <h4 class="logo">Desig<span>ner.</span></h4>
+                <div class="menu_hum">
+                    <ul id="menu">
+                        <li><a href="#header"><span></span><span></span><span></span> Home</a></li>
+                        <li><a href="#exp"><span></span><span></span><span></span> About Us</a></li>
+                        <li><a href="#services"><span></span><span></span><span></span> Services</a></li>
+                        <li><a href="#portfolio"><span></span><span></span><span></span> Portfolio</a></li>
+                        <li><a href="#pricing"><span></span><span></span><span></span> Pricing</a></li>
+                        <li><a href="#contact"><span></span><span></span><span></span> Contact Us</a></li>
+                    </ul>
+                    <i class="bi bi-three-dots" id="menu_btn"></i>
+                </div>
+            </nav>
+            <div class="content">
+                <div class="cont_bx">
+                    <h5>Hello I'm</h5>
+                    <h1>Garav Aggarwal</h1>
+                    <h6>Student At Upes</h6>
+                    <div ng-controller="MultiTypingController as ctrl">
+                        <h1>I'm 
+                            <span class="animation-container" ng-repeat="word in ctrl.words" ng-if="ctrl.currentIndex === $index">
+                                <span class="word-animation">{{ word }}</span>
+                            </span>
+                        </h1>
+                    </div>
+                    <p>I Love doing coding and always up for some challenges and ready to make cool websites,love creating animations</p>
+                    <a href="http://127.0.0.1:5500/Project/Detail.html" target="_blank">
+                    <button>Hire Me.</button>
+                </a>
+                </div>
+                <div class="img_bx">
+                    <img src="img/garav.png" alt="Garav Aggarwal">
+                </div>
+            </div>
+            <script>
+                angular.module('multiTypingApp', ['ngAnimate'])
+                    .controller('MultiTypingController', function($scope, $interval) {
+                        var vm = this;
+
+                        vm.words = ['Freelancer', 'AI-Specialist', 'Debugger', 'Student'];
+                        vm.currentIndex = 0;
+
+                        $interval(function() {
+                            vm.currentIndex = (vm.currentIndex + 1) % vm.words.length;
+                        }, 4000); 
+                    });
+            </script>
+
+            </div>
+    </header>
+
+    <div class="skill_bx">
+        <div class="skill_img_bx">
+            <img src="img/Main.png" alt="">
+        </div>
+        <div class="skill_cont_bx">
+            <h6>About US</h6>
+            <h2>Why You Hire Me. <span></span><span></span><span></span></h2>
+            <p>I m very good at the the skills mentioned below at i have spent many days just doing learning and doing these things thaat you can understand even through my portfolio how i have learned and implememted these things
+            </p>
+            <div class="skill_progress_bar">
+                <div class="skill_progress_bar_box">
+                    <div class="lable">
+                        <h6>Power Point Presentation</h6>
+                        <h6>85%</h6>
+                    </div>
+                    <h5 class="ani"></h5>
+                </div>
+                <div class="skill_progress_bar_box">
+                    <div class="lable">
+                        <h6>Web Design</h6>
+                        <h6>75%</h6>
+                    </div>
+                    <h5 class="ani"></h5>
+                </div>
+                <div class="skill_progress_bar_box">
+                    <div class="lable">
+                        <h6>HTML<span>/</span>CSS<span>/</span>Javascript</h6>
+                        <h6>95%</h6>
+                    </div>
+                    <h5 class="ani"></h5>
+                </div>
+                <div class="skill_progress_bar_box">
+                    <div class="lable">
+                        <h6>C</h6>
+                        <h6>70%</h6>
+                    </div>
+                    <h5 class="ani"></h5>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="services" id="services">
+        <div class="head">
+            <h6>Service</h6>
+            <h3>Service Provide</h3>
+            <div class="spans">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="cards">
+            <div class="card">
+                <i class="bi bi-paint-bucket"></i>
+                <h6>Graphics Designer</h6>
+                <p>Creative, visual communicator, design concepts, Adobe Suite, typography, color theory, layout, branding, illustration, print and digital media, client collaboration.</p>
+            </div>
+            <div class="card">
+                <i class="bi bi-pc-display-horizontal"></i>
+                <h6>Web Design</h6>
+                <p>Creative, artistic, detail-oriented, innovative, skilled in visual communication, software proficient, problem solver, collaborator, deadline-oriented, adaptable, trend-aware.</p>
+            </div>
+            <div class="card">
+                <i class="bi bi-ui-radios"></i>
+                <h6>UX/UI Design</h6>
+                <p>User-focused, empathetic, research-driven, wireframe expert, usability specialist, prototype creator, user interface designer, user experience advocate, iterative, problem solver, collaborative.</p>
+            </div>
+            <div class="card">
+                <i class="bi bi-braces-asterisk"></i>
+                <h6>CSS</h6>
+                <p>Styling language, cascading rules, responsive design, layout control, browser compatibility, animations, transitions, preprocessors, selectors, box model.</p>
+            </div>
+            <div class="card">
+                <i class="bi bi-code-slash"></i>
+                <h6>HTML</h6>
+                <p>Markup language, structure, semantic elements, tags, attributes, web content, hyperlinks, headings, paragraphs, lists, tables, forms.</p>
+            </div>
+            <div class="card">
+                <i class="bi bi-filetype-js"></i>
+                <h6>Javascript</h6>
+                <p>Scripting language, dynamic behavior, client-side interactions, event-driven, DOM manipulation, asynchronous operations, functions, variables, data types, JSON handling.</p>
+            </div>
+            <div class="card">
+                <i class="bi bi-code"></i>
+                <h6>C</h6>
+                <p>C is a procedural programming language known for its efficiency, portability, and low-level features. It's used for system programming, software development, and embedded systems.</p>
+            </div>
+            <div class="card">
+                <i class="bi bi-filetype-pptx"></i>
+                <h6>PowerpointPresentation</h6>
+                <p>Slides creation, visual storytelling, multimedia integration, design elements</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Project Box start  -->
+    <div class="project" id="portfolio">
+        <div class="head">
+            <div class="l_bx">
+                <h6>Portfolio</h6>
+                <h3>Latest Project</h3>
+                <div class="spans">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+            <div class="r_bx">
+                <i class="bi bi-caret-left-fill" id="left_scroll_p"></i>
+                <i class="bi bi-caret-right-fill" id="right_scroll_p"></i>
+            </div>
+        </div>
+        <div class="cards" id="project_cards">
+            <div class="card">
+                <img src="img/1.png" alt="">
+                <div class="cont">
+                    <h5>Portfolio</h5>
+                    <p>Web Application</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="img/2.png" alt="">
+                <div class="cont">
+                    <h5>Deforestation and Afforestations</h5>
+                    <p>PPTX</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="img/4.jpeg" alt="">
+                <div class="cont">
+                    <h5>Random Image</h5>
+                    <p>Web Appliaction</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="img/3.jpeg" alt="">
+                <div class="cont">
+                    <h5>Random Image</h5>
+                    <p>Web Appliaction</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="img/5.jpeg" alt="">
+                <div class="cont">
+                    <h5>Random Image</h5>
+                    <p>Web Appliaction</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="img/6.jpeg" alt="">
+                <div class="cont">
+                    <h5>Random Image</h5>
+                    <p>Web Appliaction</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pricing Box Start  -->
+    <div class="pricing" id="pricing">
+        <div class="head">
+            <h6>Pricing</h6>
+            <h3>Service Provide</h3>
+            <div class="spans">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="cards">
+            <div class="card">
+                <h5>Basic</h5>
+                <h2>1500Rs.</h2>
+                <p>Basic Services</p>
+                <ul>
+                    <li><i class="bi bi-check-lg"></i> Debugging</li>
+                    <li><i class="bi bi-check-lg"></i> Web Design</li>
+                    <li><i class="bi bi-check-lg"></i> UI/UX</li>
+                </ul>
+                <a href="http://127.0.0.1:5500/Project/payment.html" target="_blank">
+                <button>Choose Plan</button>
+            </a>
+                <h6></h6>
+            </div>
+            <div class="card">
+                <h5>Standard</h5>
+                <h2>5000Rs.</h2>
+                <p>Standard Services</p>
+                <ul>
+                    <li><i class="bi bi-check-lg"></i> Debugging</li>
+                    <li><i class="bi bi-check-lg"></i> Web Design</li>
+                    <li><i class="bi bi-check-lg"></i> UI/UX</li>
+                    <li><i class="bi bi-check-lg"></i> PowerpointPresentation</li>
+                </ul>
+                <a href="http://127.0.0.1:5500/Project/payment.html" target="_blank">
+                    <button>Choose Plan</button>
+                </a>
+                <h6>Popluar</h6>
+            </div>
+            <div class="card">
+                <h5>Primium</h5>
+                <h2>10000Rs.</h2>
+                <p>Primium Services</p>
+                <ul>
+                    <li><i class="bi bi-check-lg"></i> Debugging</li>
+                    <li><i class="bi bi-check-lg"></i> Web Design</li>
+                    <li><i class="bi bi-check-lg"></i> UI/UX</li>
+                    <li><i class="bi bi-check-lg"></i> PowerpointPresentation</li>
+                    <li><i class="bi bi-check-lg"></i> AI-Creation</li>
+                    <li><i class="bi bi-check-lg"></i> Any other.</li>
+                </ul>
+                <a href="http://127.0.0.1:5500/Project/payment.html" target="_blank">
+                    <button>Choose Plan</button>
+                </a>
+                <h6></h6>
+            </div>
+        </div>
+    </div>
+
+    <div class="client_data">
+        <div class="cards">
+            <div class="card">
+                <i class="bi bi-check-circle"></i>
+                <div class="cont">
+                    <h6>10+</h6>
+                    <p>Project Complete</p>
+                </div>
+            </div>
+            <div class="card">
+                <i class="bi bi-people"></i>
+                <div class="cont">
+                    <h6>34</h6>
+                    <p>Client Active</p>
+                </div>
+            </div>
+            <div class="card">
+                <i class="bi bi-shield-check"></i>
+                <div class="cont">
+                    <h6>25</h6>
+                    <p>Project Active</p>
+                </div>
+            </div>
+            <div class="card">
+                <i class="bi bi-diagram-3"></i>
+                <div class="cont">
+                    <h6>2</h6>
+                    <p>Team Member</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="exp_bx" id="exp">
+        <div class="head">
+            <h6>Experiance</h6>
+            <h3>Work Experiance</h3>
+            <div class="spans">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="cards">
+            <div class="card">
+                <p class="pra">This is the skill which I have the most hours practising,solving and creating multiple bots related to AI intelligence 
+                    i have the ability to train the models upto a level that is always above 90% precision . 
+                </p>
+                <h6><span>01</span></h6>
+                <div class="cont">
+                    <h5>AI</h5>
+                    <h5 class="h5">UPES</h5>
+                    <p>August-2022 to August-2026</p>
+                </div>
+            </div>
+            <div class="card">
+                <p class="pra">I have solved many question in Codechef related to debugging in many languages(C,java,python),
+                    I have given 100 of hours on the website learning how to debugg the code how to think ideas of solving the problems
+                </p>
+                <h6><span>02</span></h6>
+                <div class="cont">
+                    <h5>Debugging</h5>
+                    <h5 class="h5">CodeChef</h5>
+                    <p>may-2023 to August-2023</p>
+                </div>
+            </div>
+            <div class="card">
+                <p class="pra">This is the skill I have practised a lot in my college and created a lot of projects based on this skill which have been
+                    appreciated by the professors as well as other students which were lerning with me 
+                </p>
+                <h6><span>03</span></h6>
+                <div class="cont">
+                    <h5>Web Developer</h5>
+                    <h5 class="h5">UPES</h5>
+                    <p>August-2022 to August-2026</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mind_bx">
+        <div class="card">
+            <div class="cont">
+                <h4>Have Any Project In Mind</h4>
+                <div class="spans">
+                    <span></span><span></span><span></span>
+                </div>
+                <p>I have the Eagerness, excitement and energy to learn , experience work and would love to work with you anytime</p>
+            </div>
+            <div class="btn">
+                <a href="http://127.0.0.1:5500/Project/Detail.html" target="_blank">
+                    <button>Hire Me.</button>
+                </a>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgb(184,184,184,.1)" fill-opacity="1" d="M0,160L48,149.3C96,139,192,117,288,133.3C384,149,480,203,576,224C672,245,768,235,864,229.3C960,224,1056,224,1152,197.3C1248,171,1344,117,1392,90.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+        </div>
+    </div>
+
+    <footer id="contact">
+        <h6>Desig<span>ner</span></h6>
+        <div class="social">
+            <a href="https://github.com/Garav1" target="_blank">
+                <i class="bi bi-github"></i>
+            </a>
+            <a href="https://twitter.com/GaravAggarwal" target="_blank">
+                <i class="bi bi-twitter"></i>
+            </a>
+            <a href="https://www.instagram.com/garav_384?igsh=MXhuNGU2MzEwZ25uYg==" target="_blank">
+                <i class="bi bi-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/garav-aggarwal-7778072a0/" target="_blank">
+                <i class="bi bi-linkedin"></i>
+            </a>
+        </div>
+        <h4>Garav.work23@gmail.com</h4>
+        <ul>
+            <li><a href="#header">Home</a></li>
+            <li><a href="#exp">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
